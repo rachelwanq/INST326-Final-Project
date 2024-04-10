@@ -1,0 +1,11 @@
+Your pet is hungry!,0,0,0,-10,0
+Your pet played in mud!,0,10,-10,0,0
+Your pet was chased by a dog!,0,-20,0,0,-10
+Your pet threw up!,-10,-5,-10,-5,0
+Your pet want to play!,0,-10,0,0,0
+Your pet wants pets!,0,-10,0,0,0
+Your pet wants love!,0,-10,0,0,0
+Your pet is bored!,0,-5,0,0,0
+Your pet is thristy!,-5,0,0,-10,0
+Your pet bumped into a chair!,-10,-5,0,0,0
+Your pet wants to nap!,0,0,0,0,-10
