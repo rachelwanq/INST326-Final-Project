@@ -53,10 +53,12 @@ def random_behavior(filename, pet):
 def eat(pet, food, file_name="list_of_foods.txt"):
     food_dict, food_options = pet.read_food_list(file_name)
     food = food.lower()
+    
     if food in food_dict:
         pet.health += food_dict[food]
         return f"{pet.name} enjoyed the {food} and gained {food_dict[food]}"\
                 " health!"
+                
     return f"Sorry, {pet.name} doesn't want to eat {food}."
 
 # Testing
