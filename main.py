@@ -105,8 +105,8 @@ def random_behavior(filename, pet):
     pet.update_stats(updating)
     print(list_of_stats[0])
     
-# if __name__ == "__main__":
-#     dog = Pet("Harry")
+if __name__ == "__main__":
+    dog = Pet("Harry")
 #     print(dog.cleaniness)
 #     random_behavior("random_behavior.txt", dog)
 #     print(dog.cleaniness)
