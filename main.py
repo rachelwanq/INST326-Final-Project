@@ -1,5 +1,6 @@
 import random
 import re
+import pyplot as plt
 
 
 class Pet():
@@ -25,8 +26,22 @@ class Pet():
         self.cleaniness = int(stats[2])
         self.hunger = int(stats[3])
         self.tiredness = int(stats[4])
+        
     
-    
+    def pet_emotion(self):
+        
+        attributes = ['Health', 'Happiness', 'Cleanliness', 'Hunger','Tiredness']
+        values = [self.health, self.happiness, self.cleaniness, self.hunger,
+                  self.tiredness]
+        
+        plt.figure(figsize=(10,5))
+        plt.bar(attributes, values, color = ['blue', 'pink', 'orange', 'yellow', 
+                                             'purple'])
+        plt.title(f"{self.name}'s Emotions")
+        plt.xlabel('Attributes')
+        plt.ylabel('Values')
+        plt.show()        
+            
     def __str__(self):
         return f"Pet: {self.name}, Health: {self.health}, Happiness: {self.happiness},
                 Cleaniness: {self.cleaniness}, Hunger: {self.hunger}, 
