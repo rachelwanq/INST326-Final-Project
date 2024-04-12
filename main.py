@@ -1,6 +1,7 @@
 import random
 import re
 
+
 class Pet():
     def __init__(self, name):
         self.name = name
@@ -33,6 +34,36 @@ class Pet():
             
         return foods, food_options
 
+def menu(pet):
+    print("Welcome to the virtual pet menu!")
+    print("1. Feed")
+    print("2. Clean")
+    print("3. Hug")
+    print("4. Play")
+    print("5. Water")
+    print("6. Nap")
+    choice = input("Please select an option: ")
+    if choice == "1":
+        food = input("What food would you like to feed your pet? ")
+        eat(pet, food)
+    elif choice == "2":
+        print("Cleaning pet...")
+    elif choice == "3":
+        print("Hugging pet...")
+    elif choice == "4":
+        print("Playing with pet...")
+    elif choice == "5":
+        print("Watering pet...")
+    elif choice == "6":
+        nap_pet(pet)
+    else:
+        print("Invalid choice. Please select a valid option.")
+        
+def nap_pet(pet):
+    pet.tiredness -= 10
+    print(f"{pet.name} is now in bed and resting. ")
+        
+        
 def random_behavior(filename, pet):
     final_choice = ""
     with open(filename, "r", encoding = "utf-8") as file:
