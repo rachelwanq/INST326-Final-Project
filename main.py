@@ -17,6 +17,11 @@ class Pet():
         self.cleaniness = int(stats[2])
         self.hunger = int(stats[3])
         self.tiredness = int(stats[4])
+    
+    def __str__(self):
+        return f"Pet: {self.name}, Health: {self.health}, Happiness: {self.happiness},
+                Cleaniness: {self.cleaniness}, Hunger: {self.hunger}, 
+                Tiredness: {self.tiredness} "
         
     def read_food_list(self, file_name="list_of_foods.txt"):
         foods = {}
@@ -33,6 +38,7 @@ class Pet():
                         food_options.append(food)
             
         return foods, food_options
+    
 
 def menu(pet):
     print("Welcome to the virtual pet menu!")
