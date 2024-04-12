@@ -1,6 +1,6 @@
 import random
 import re
-import pyplot as plt
+import matplotlib.pyplot as plt
 
 
 class Pet():
