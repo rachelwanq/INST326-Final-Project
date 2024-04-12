@@ -40,7 +40,7 @@ def random_behavior(filename, pet):
         final_choice = random.choice(lines).strip()
     
     list_of_stats = final_choice.split(",")
-    updating = list_of_stats[1:6]git 
+    updating = list_of_stats[1:6]
     pet.update_stats(updating)
     print(list_of_stats[0])
     
