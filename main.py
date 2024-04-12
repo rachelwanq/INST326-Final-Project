@@ -1,5 +1,7 @@
 import random
 import re
+import matplotlib.pyplot as plt
+
 
 class Pet():
     def __init__(self, name):
@@ -9,13 +11,41 @@ class Pet():
         self.cleaniness = 0
         self.hunger = 0
         self.tiredness = 0
+        self.pet_attributes()
         
+    def pet_attributes(self):
+        self.health = random.randint(50, 100) 
+        self.happiness = random.randint(0, 100)  
+        self.cleanliness = random.randint(0, 100) 
+        self.hunger = random.randint(0, 100) 
+        self.tiredness = random.randint(0, 100)
+    
     def update_stats(self, stats):
         self.health = int(stats[0])
         self.happiness = int(stats[1])
         self.cleaniness = int(stats[2])
         self.hunger = int(stats[3])
         self.tiredness = int(stats[4])
+        
+    
+    def pet_emotion(self):
+        
+        attributes = ['Health', 'Happiness', 'Cleanliness', 'Hunger','Tiredness']
+        values = [self.health, self.happiness, self.cleaniness, self.hunger,
+                  self.tiredness]
+        
+        plt.figure(figsize=(10,5))
+        plt.bar(attributes, values, color = ['blue', 'pink', 'orange', 'yellow', 
+                                             'purple'])
+        plt.title(f"{self.name}'s Emotions")
+        plt.xlabel('Attributes')
+        plt.ylabel('Values')
+        plt.show()  
+            
+    def __str__(self):
+        return f"Pet: {self.name}, Health: {self.health}, Happiness: {self.happiness},
+                Cleaniness: {self.cleaniness}, Hunger: {self.hunger}, 
+                Tiredness: {self.tiredness} "
         
     def read_food_list(self, file_name="list_of_foods.txt"):
         foods = {}
@@ -32,7 +62,38 @@ class Pet():
                         food_options.append(food)
             
         return foods, food_options
+    
 
+def menu(pet):
+    print("Welcome to the virtual pet menu!")
+    print("1. Feed")
+    print("2. Clean")
+    print("3. Hug")
+    print("4. Play")
+    print("5. Water")
+    print("6. Nap")
+    choice = input("Please select an option: ")
+    if choice == "1":
+        food = input("What food would you like to feed your pet? ")
+        eat(pet, food)
+    elif choice == "2":
+        print("Cleaning pet...")
+    elif choice == "3":
+        print("Hugging pet...")
+    elif choice == "4":
+        print("Playing with pet...")
+    elif choice == "5":
+        print("Watering pet...")
+    elif choice == "6":
+        nap_pet(pet)
+    else:
+        print("Invalid choice. Please select a valid option.")
+        
+def nap_pet(pet):
+    pet.tiredness -= 10
+    print(f"{pet.name} is now in bed and resting. ")
+        
+        
 def random_behavior(filename, pet):
     final_choice = ""
     with open(filename, "r", encoding = "utf-8") as file:
@@ -70,3 +131,9 @@ def eat(pet, food, file_name="list_of_foods.txt"):
 #     message = eat(dog, "orange")
 #     print(message)
 #     print("New health:", dog.health)
+
+def pet_pet(pet):
+    pet.happiness += 10
+    pet.tiredness -= 7
+    
+    print(f"{pet.name} is happy! ")
