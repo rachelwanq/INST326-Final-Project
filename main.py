@@ -40,7 +40,7 @@ class Pet():
         plt.title(f"{self.name}'s Emotions")
         plt.xlabel('Attributes')
         plt.ylabel('Values')
-        plt.show()        
+        plt.show()  
             
     def __str__(self):
         return f"Pet: {self.name}, Health: {self.health}, Happiness: {self.happiness},
