@@ -43,9 +43,9 @@ class Pet():
         plt.show()  
             
     def __str__(self):
-        return f"Pet: {self.name}, Health: {self.health}, Happiness: {self.happiness},
-                Cleaniness: {self.cleaniness}, Hunger: {self.hunger}, 
-                Tiredness: {self.tiredness} "
+        return (f"Pet: {self.name}, Health: {self.health}, Happiness: {self.happiness},"
+                f"Cleaniness: {self.cleaniness}, Hunger: {self.hunger},"
+                f"Tiredness: {self.tiredness} ")
         
     def read_food_list(self, file_name="list_of_foods.txt"):
         foods = {}
