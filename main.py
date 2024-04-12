@@ -10,13 +10,22 @@ class Pet():
         self.cleaniness = 0
         self.hunger = 0
         self.tiredness = 0
+        self.pet_attributes()
         
+    def pet_attributes(self):
+        self.health = random.randint(50, 100) 
+        self.happiness = random.randint(0, 100)  
+        self.cleanliness = random.randint(0, 100) 
+        self.hunger = random.randint(0, 100) 
+        self.tiredness = random.randint(0, 100)
+    
     def update_stats(self, stats):
         self.health = int(stats[0])
         self.happiness = int(stats[1])
         self.cleaniness = int(stats[2])
         self.hunger = int(stats[3])
         self.tiredness = int(stats[4])
+    
     
     def __str__(self):
         return f"Pet: {self.name}, Health: {self.health}, Happiness: {self.happiness},
@@ -108,5 +117,8 @@ def eat(pet, food, file_name="list_of_foods.txt"):
 #     print(message)
 #     print("New health:", dog.health)
 
-def pet_attributes():
-    return None
+def pet_pet(pet):
+    pet.happiness += 10
+    pet.tiredness -= 7
+    
+    print(f"{pet.name} is happy! ")
