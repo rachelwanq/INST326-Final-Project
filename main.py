@@ -107,3 +107,6 @@ def eat(pet, food, file_name="list_of_foods.txt"):
 #     message = eat(dog, "orange")
 #     print(message)
 #     print("New health:", dog.health)
+
+def pet_attributes():
+    return None
