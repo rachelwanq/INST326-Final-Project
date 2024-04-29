@@ -87,6 +87,7 @@ def menu(pet):
         print("Playing with pet...")
     elif choice == "5":
         print("Watering pet...")
+        water_pet(pet)
     elif choice == "6":
         nap_pet(pet)
     else:
@@ -131,8 +132,6 @@ def water_pet(pet):
     
 # testing
 if __name__ == "__main__":
-    dog = Pet("Harry")
-    print(dog.cleaniness)
-    random_behavior("random_behavior.txt", dog)
-    print(dog.cleaniness)
-    dog.pet_emotion()
+    pet_name = input("Please input a name for your pet!")
+    curr_pet = Pet(pet_name)
+    menu(curr_pet)
