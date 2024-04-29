@@ -77,6 +77,7 @@ def menu(pet):
     print("6. Nap")
     print("7. Pet")
     print(f"8. See {pet_name}'s stats")
+    random_behavior("random_behavior.txt", pet)
     choice = input("Please select an option: ")
     if choice == "1":
         food = input("What food would you like to feed your pet? ")
@@ -141,8 +142,9 @@ def water_pet(pet):
 def hug_pet(pet):
     pet.happiness += 10
     pet.cleaniness -= 3
-    print(f"{pet_name} hugged you back!")
-    
+    random_num = random.randint(0,1)
+    print (f"{pet_name} hugged you back!" if random_num == 0 else f"{pet_name} did not hug you back")
+
 # testing
 if __name__ == "__main__":
     pet_name = input("Please input a name for your pet!\n")
