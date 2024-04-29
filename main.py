@@ -122,6 +122,20 @@ def eat(pet, food, file_name="list_of_foods.txt"):
                 
     return f"Sorry, {pet.name} doesn't want to eat {food}."
 
+def pet_pet(pet):
+    pet.happiness += 10
+    pet.tiredness -= 7
+    
+    print(f"{pet.name} is happy! ")
+    
+# testing
+if __name__ == "__main__":
+    dog = Pet("Harry")
+    print(dog.cleaniness)
+    random_behavior("random_behavior.txt", dog)
+    print(dog.cleaniness)
+    dog.pet_emotion()
+
 # Testing
 # if __name__ == "__main__":
 #     dog = Pet("Buddy")
@@ -131,9 +145,3 @@ def eat(pet, food, file_name="list_of_foods.txt"):
 #     message = eat(dog, "orange")
 #     print(message)
 #     print("New health:", dog.health)
-
-def pet_pet(pet):
-    pet.happiness += 10
-    pet.tiredness -= 7
-    
-    print(f"{pet.name} is happy! ")
