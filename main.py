@@ -137,12 +137,12 @@ def eat(pet, food, file_name="list_of_foods.txt"):
 
 def clean(pet, self):
     
-    clean_amount = 25
+    clean_amount = 20
     
     self.cleanliness = min(self.cleanliness + clean_amount, 100)
     
     
-    self.happiness = max(self.happiness - 10, 0)
+    self.happiness = max(self.happiness - 5, 0)
     
     
     self.tiredness = max(self.tiredness - 5, 0)
