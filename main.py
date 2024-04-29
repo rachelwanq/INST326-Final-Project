@@ -127,11 +127,12 @@ def pet_pet(pet):
     print(f"{pet.name} is happy! ")
     
 def water_pet(pet):
-    pet.heath += 2
+    pet.health += 2
     pet.hunger += 3
+    print(f"{pet.name} drank some water!")
     
 # testing
 if __name__ == "__main__":
-    pet_name = input("Please input a name for your pet!")
+    pet_name = input("Please input a name for your pet!\n")
     curr_pet = Pet(pet_name)
     menu(curr_pet)
