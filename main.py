@@ -16,7 +16,7 @@ class Pet():
     def pet_attributes(self):
         self.health = random.randint(50, 100) 
         self.happiness = random.randint(0, 100)  
-        self.cleanliness = random.randint(0, 100) 
+        self.cleanliness = random.randint (0, 100) 
         self.hunger = random.randint(0, 100) 
         self.tiredness = random.randint(0, 100)
     
@@ -46,6 +46,13 @@ class Pet():
         return f"Pet: {self.name}, Health: {self.health}, Happiness: {self.happiness},
                 Cleaniness: {self.cleaniness}, Hunger: {self.hunger}, 
                 Tiredness: {self.tiredness} "
+    
+    
+    def __repr__(self):
+        return f"Pet: {self.name}, Health: {self.health}, Happiness: {self.happiness},
+                Cleaniness: {self.cleaniness}, Hunger: {self.hunger}, 
+                Tiredness: {self.tiredness} "
+    
         
     def read_food_list(self, file_name="list_of_foods.txt"):
         foods = {}
