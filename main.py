@@ -75,7 +75,8 @@ def menu(pet):
     print("4. Play")
     print("5. Water")
     print("6. Nap")
-    print(f"7. See {pet_name}'s stats")
+    print("7. Pet")
+    print(f"8. See {pet_name}'s stats")
     choice = input("Please select an option: ")
     if choice == "1":
         food = input("What food would you like to feed your pet? ")
@@ -84,6 +85,7 @@ def menu(pet):
         print("Cleaning pet...")
     elif choice == "3":
         print("Hugging pet...")
+        hug_pet(pet)
     elif choice == "4":
         print("Playing with pet...")
     elif choice == "5":
@@ -92,6 +94,8 @@ def menu(pet):
     elif choice == "6":
         nap_pet(pet)
     elif choice == "7":
+        pet_pet(pet)
+    elif choice == "8":
         pet.pet_emotion()
     else:
         print("Invalid choice. Please select a valid option.")
@@ -133,6 +137,11 @@ def water_pet(pet):
     pet.health += 2
     pet.hunger += 3
     print(f"{pet.name} drank some water!")
+
+def hug_pet(pet):
+    pet.happiness += 10
+    pet.cleaniness -= 3
+    print(f"{pet_name} hugged you back!")
     
 # testing
 if __name__ == "__main__":
