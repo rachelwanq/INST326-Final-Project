@@ -42,23 +42,13 @@ class Pet():
         plt.ylabel('Values')
         plt.show()  
             
+    
+    
     def __str__(self):
-<<<<<<< HEAD
         return f"Pet: {self.name}, Health: {self.health}, Happiness: {self.happiness},
                 Cleaniness: {self.cleaniness}, Hunger: {self.hunger}, 
                 Tiredness: {self.tiredness} "
     
-    
-    def __repr__(self):
-        return f"Pet: {self.name}, Health: {self.health}, Happiness: {self.happiness},
-                Cleaniness: {self.cleaniness}, Hunger: {self.hunger}, 
-                Tiredness: {self.tiredness} "
-    
-=======
-        return f"Pet: {self.name}, Health: {self.health}, Happiness: {self.happiness},\
-                Cleaniness: {self.cleaniness}, Hunger: {self.hunger},\
-                Tiredness: {self.tiredness}"
->>>>>>> 3925f1d3713c2788481f1389ebbc4b5abf1d2710
         
     def read_food_list(self, file_name="list_of_foods.txt"):
         foods = {}
