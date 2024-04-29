@@ -43,6 +43,7 @@ class Pet():
         plt.show()  
             
     def __str__(self):
+<<<<<<< HEAD
         return f"Pet: {self.name}, Health: {self.health}, Happiness: {self.happiness},
                 Cleaniness: {self.cleaniness}, Hunger: {self.hunger}, 
                 Tiredness: {self.tiredness} "
@@ -53,6 +54,11 @@ class Pet():
                 Cleaniness: {self.cleaniness}, Hunger: {self.hunger}, 
                 Tiredness: {self.tiredness} "
     
+=======
+        return f"Pet: {self.name}, Health: {self.health}, Happiness: {self.happiness},\
+                Cleaniness: {self.cleaniness}, Hunger: {self.hunger},\
+                Tiredness: {self.tiredness}"
+>>>>>>> 3925f1d3713c2788481f1389ebbc4b5abf1d2710
         
     def read_food_list(self, file_name="list_of_foods.txt"):
         foods = {}
@@ -129,6 +135,20 @@ def eat(pet, food, file_name="list_of_foods.txt"):
                 
     return f"Sorry, {pet.name} doesn't want to eat {food}."
 
+def pet_pet(pet):
+    pet.happiness += 10
+    pet.tiredness -= 7
+    
+    print(f"{pet.name} is happy! ")
+    
+# testing
+if __name__ == "__main__":
+    dog = Pet("Harry")
+    print(dog.cleaniness)
+    random_behavior("random_behavior.txt", dog)
+    print(dog.cleaniness)
+    dog.pet_emotion()
+
 # Testing
 # if __name__ == "__main__":
 #     dog = Pet("Buddy")
@@ -138,9 +158,3 @@ def eat(pet, food, file_name="list_of_foods.txt"):
 #     message = eat(dog, "orange")
 #     print(message)
 #     print("New health:", dog.health)
-
-def pet_pet(pet):
-    pet.happiness += 10
-    pet.tiredness -= 7
-    
-    print(f"{pet.name} is happy! ")
