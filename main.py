@@ -108,12 +108,6 @@ def random_behavior(filename, pet):
     pet.update_stats(updating)
     print(list_of_stats[0])
     
-# if __name__ == "__main__":
-#     dog = Pet("Harry")
-#     print(dog.cleaniness)
-#     random_behavior("random_behavior.txt", dog)
-#     print(dog.cleaniness)
-
 def eat(pet, food, file_name="list_of_foods.txt"):
     food_dict, food_options = pet.read_food_list(file_name)
     food = food.lower()
@@ -138,13 +132,3 @@ if __name__ == "__main__":
     random_behavior("random_behavior.txt", dog)
     print(dog.cleaniness)
     dog.pet_emotion()
-
-# Testing
-# if __name__ == "__main__":
-#     dog = Pet("Buddy")
-#     foods, food_options = dog.read_food_list()
-#     # print("Available food options:", ", ".join(food_options))
-#     print("Initial health:", dog.health)
-#     message = eat(dog, "orange")
-#     print(message)
-#     print("New health:", dog.health)
