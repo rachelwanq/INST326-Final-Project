@@ -27,7 +27,6 @@ class Pet():
         self.hunger = int(stats[3])
         self.tiredness = int(stats[4])
         
-    
     def pet_emotion(self):
         
         attributes = ['Health', 'Happiness', 'Cleanliness', 'Hunger','Tiredness']
@@ -41,15 +40,12 @@ class Pet():
         plt.xlabel('Attributes')
         plt.ylabel('Values')
         plt.show()  
-        
-    
     
     def __str__(self):
         return (f"Pet: {self.name}, Health: {self.health}, Happiness: {self.happiness},"
                 f"Cleaniness: {self.cleaniness}, Hunger: {self.hunger}, "
                 f"Tiredness: {self.tiredness} ")
-    
-        
+     
     def read_food_list(self, file_name="list_of_foods.txt"):
         foods = {}
         food_options = []
@@ -65,7 +61,6 @@ class Pet():
                         food_options.append(food)
             
         return foods, food_options
-    
 
 def menu(pet):
     print("Welcome to the virtual pet menu!")
@@ -80,8 +75,11 @@ def menu(pet):
     random_behavior("random_behavior.txt", pet)
     choice = input("Please select an option: ")
     if choice == "1":
+        food_dict, food_options = pet.read_food_list()
+        print("Available food options:", ", ".join(food_options)) 
         food = input("What food would you like to feed your pet? ")
-        eat(pet, food)
+        result = eat(pet, food)
+        print(result)
     elif choice == "2":
         print("Cleaning pet...")
     elif choice == "3":
@@ -104,7 +102,6 @@ def menu(pet):
 def nap_pet(pet):
     pet.tiredness -= 10
     print(f"{pet.name} is now in bed and resting. ")
-        
         
 def random_behavior(filename, pet):
     final_choice = ""
@@ -152,8 +149,6 @@ def clean(pet, self):
     
     print(f"Hapiness is now at {self.happiness} and tiredness is now {self.tiredness}.")
     
-    
-
 def pet_pet(pet):
     pet.happiness += 10
     pet.tiredness -= 7
