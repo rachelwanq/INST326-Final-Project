@@ -2,7 +2,6 @@ import random
 import re
 import matplotlib.pyplot as plt
 
-
 class Pet():
     def __init__(self, name):
         self.name = name
@@ -130,7 +129,6 @@ def eat(pet, food, file_name="list_of_foods.txt"):
                 " health!"
                 
     return f"Sorry, {pet.name} doesn't want to eat {food}."
-
 
 def clean(pet, self):
     
