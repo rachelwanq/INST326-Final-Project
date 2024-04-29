@@ -41,7 +41,7 @@ class Pet():
         plt.xlabel('Attributes')
         plt.ylabel('Values')
         plt.show()  
-            
+        
     
     
     def __str__(self):
@@ -108,7 +108,7 @@ def random_behavior(filename, pet):
     pet.update_stats(updating)
     print(list_of_stats[0])
     
-# if __name__ == "__main__":
+#if __name__ == "__main__":
 #     dog = Pet("Harry")
 #     print(dog.cleaniness)
 #     random_behavior("random_behavior.txt", dog)
@@ -124,6 +124,26 @@ def eat(pet, food, file_name="list_of_foods.txt"):
                 " health!"
                 
     return f"Sorry, {pet.name} doesn't want to eat {food}."
+
+
+def clean(pet, self):
+    
+    clean_amount = 25
+    
+    self.cleanliness = min(self.cleanliness + clean_amount, 100)
+    
+    
+    self.happiness = max(self.happiness - 10, 0)
+    
+    
+    self.tiredness = max(self.tiredness - 5, 0)
+    
+    
+    print(f"{self.name} has now been cleaned. Cleanliness score is now at {self.cleanliness}.")
+    
+    print(f"Hapiness is now at {self.happiness} and tiredness is now {self.tiredness}.")
+    
+    
 
 def pet_pet(pet):
     pet.happiness += 10
