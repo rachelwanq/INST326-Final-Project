@@ -125,6 +125,10 @@ def pet_pet(pet):
     
     print(f"{pet.name} is happy! ")
     
+def water_pet(pet):
+    pet.heath += 2
+    pet.hunger += 3
+    
 # testing
 if __name__ == "__main__":
     dog = Pet("Harry")
