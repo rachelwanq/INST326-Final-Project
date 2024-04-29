@@ -45,9 +45,9 @@ class Pet():
     
     
     def __str__(self):
-        return f"Pet: {self.name}, Health: {self.health}, Happiness: {self.happiness},
-                Cleaniness: {self.cleaniness}, Hunger: {self.hunger}, 
-                Tiredness: {self.tiredness} "
+        return (f"Pet: {self.name}, Health: {self.health}, Happiness: {self.happiness},"
+                f"Cleaniness: {self.cleaniness}, Hunger: {self.hunger}, "
+                f"Tiredness: {self.tiredness} ")
     
         
     def read_food_list(self, file_name="list_of_foods.txt"):
@@ -75,6 +75,9 @@ def menu(pet):
     print("4. Play")
     print("5. Water")
     print("6. Nap")
+    print("7. Pet")
+    print(f"8. See {pet_name}'s stats")
+    random_behavior("random_behavior.txt", pet)
     choice = input("Please select an option: ")
     if choice == "1":
         food = input("What food would you like to feed your pet? ")
@@ -83,12 +86,18 @@ def menu(pet):
         print("Cleaning pet...")
     elif choice == "3":
         print("Hugging pet...")
+        hug_pet(pet)
     elif choice == "4":
         print("Playing with pet...")
     elif choice == "5":
         print("Watering pet...")
+        water_pet(pet)
     elif choice == "6":
         nap_pet(pet)
+    elif choice == "7":
+        pet_pet(pet)
+    elif choice == "8":
+        pet.pet_emotion()
     else:
         print("Invalid choice. Please select a valid option.")
         
@@ -108,7 +117,7 @@ def random_behavior(filename, pet):
     pet.update_stats(updating)
     print(list_of_stats[0])
     
-#if __name__ == "__main__":
+# if __name__ == "__main__":
 #     dog = Pet("Harry")
 #     print(dog.cleaniness)
 #     random_behavior("random_behavior.txt", dog)
@@ -151,20 +160,19 @@ def pet_pet(pet):
     
     print(f"{pet.name} is happy! ")
     
+def water_pet(pet):
+    pet.health += 2
+    pet.hunger += 3
+    print(f"{pet.name} drank some water!")
+
+def hug_pet(pet):
+    pet.happiness += 10
+    pet.cleaniness -= 3
+    random_num = random.randint(0,1)
+    print (f"{pet_name} hugged you back!" if random_num == 0 else f"{pet_name} did not hug you back")
+
 # testing
 if __name__ == "__main__":
-    dog = Pet("Harry")
-    print(dog.cleaniness)
-    random_behavior("random_behavior.txt", dog)
-    print(dog.cleaniness)
-    dog.pet_emotion()
-
-# Testing
-# if __name__ == "__main__":
-#     dog = Pet("Buddy")
-#     foods, food_options = dog.read_food_list()
-#     # print("Available food options:", ", ".join(food_options))
-#     print("Initial health:", dog.health)
-#     message = eat(dog, "orange")
-#     print(message)
-#     print("New health:", dog.health)
+    pet_name = input("Please input a name for your pet!\n")
+    curr_pet = Pet(pet_name)
+    menu(curr_pet)
