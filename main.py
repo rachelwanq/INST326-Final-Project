@@ -75,6 +75,7 @@ def menu(pet):
     print("4. Play")
     print("5. Water")
     print("6. Nap")
+    print(f"7. See {pet_name}'s stats")
     choice = input("Please select an option: ")
     if choice == "1":
         food = input("What food would you like to feed your pet? ")
@@ -90,6 +91,8 @@ def menu(pet):
         water_pet(pet)
     elif choice == "6":
         nap_pet(pet)
+    elif choice == "7":
+        pet.pet_emotion()
     else:
         print("Invalid choice. Please select a valid option.")
         
