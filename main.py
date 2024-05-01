@@ -71,9 +71,19 @@ def menu(pet):
     print("6. Nap")
     print("7. Pet")
     print(f"8. See {pet_name}'s stats")
-    random_behavior("random_behavior.txt", pet)
     choice = input("Please select an option: ")
-    for choice in pet_name: #fix this later
+    while choice != "cancel":
+        print("1. Feed")
+        print("2. Clean")
+        print("3. Hug")
+        print("4. Play")
+        print("5. Water")
+        print("6. Nap")
+        print("7. Pet")
+        print(f"8. See {pet_name}'s stats")
+        random_behavior("random_behavior.txt", pet)
+        choice = input("Please select an option: ")
+        #for choice in pet_name: #fix this later
         if choice == "1":
             food_dict, food_options = pet.read_food_list()
             print("Available food options:", ", ".join(food_options)) 
@@ -97,8 +107,8 @@ def menu(pet):
         elif choice == "8":
             pet.pet_emotion()
         else:
-            print("Invalid choice. Please select a valid option.")
-    return choice #fix this later
+            return
+        #return choice #fix this later
         
 def nap_pet(pet):
     pet.tiredness -= 10
