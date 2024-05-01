@@ -168,18 +168,6 @@ def hug_pet(pet):
 def wellbeing_pet(pet):
     pet_stats = [pet.health, pet.happiness, pet.cleanliness, pet.hunger, pet.tiredness]
    
-    unhappy_stats = sum(1 for attr in pet_stats if attr <= 60)
-    
-    if unhappy_stats >= 4:
-        print(f"{pet.name} needs care.")
-    elif unhappy_stats >= 2 and unhappy_stats <= 3:
-        print(f"{pet.name} is feeling ok.")
-    else:
-        print(f"{pet.name} is happy!")
-        
-def wellbeing_pet(pet):
-    pet_stats = [pet.health, pet.happiness, pet.cleanliness, pet.hunger, pet.tiredness]
-   
     unhappy_stats = [attr for attr in pet_stats if attr <= 60]
 
     if len(unhappy_stats) >= 4:
