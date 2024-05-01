@@ -141,9 +141,7 @@ def clean(pet, self):
     
     self.cleanliness = min(self.cleanliness + clean_amount, 100)
     
-    
     self.happiness = max(self.happiness - 5, 0)
-    
     
     self.tiredness = max(self.tiredness - 5, 0)
     
