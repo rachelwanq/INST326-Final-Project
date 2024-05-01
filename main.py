@@ -20,11 +20,11 @@ class Pet():
         self.tiredness = random.randint(0, 100)
     
     def update_stats(self, stats):
-        self.health = int(stats[0])
-        self.happiness = int(stats[1])
-        self.cleaniness = int(stats[2])
-        self.hunger = int(stats[3])
-        self.tiredness = int(stats[4])
+        self.health += int(stats[0])
+        self.happiness += int(stats[1])
+        self.cleaniness += int(stats[2])
+        self.hunger += int(stats[3])
+        self.tiredness += int(stats[4])
         
     def pet_emotion(self):
         
@@ -71,7 +71,7 @@ def menu(pet):
     print("6. Nap")
     print("7. Pet")
     print(f"8. See {pet_name}'s stats")
-    print("'cancel' to quit")
+    print("9.'cancel' to quit")
     choice = input("Please select an option: ")
     while choice != "cancel":
         print("1. Feed")
@@ -82,7 +82,7 @@ def menu(pet):
         print("6. Nap")
         print("7. Pet")
         print(f"8. See {pet_name}'s stats")
-        print("'cancel' to quit")
+        print("9. 'cancel' to quit")
         random_behavior("random_behavior.txt", pet)
         choice = input("Please select an option: ")
         #for choice in pet_name: #fix this later
@@ -108,7 +108,8 @@ def menu(pet):
             pet_pet(pet)
         elif choice == "8":
             pet.pet_emotion()
-            pet.wellbeing_pet()
+            wellbeing_pet(pet)
+            continue
         else:
             return
         #return choice #fix this later
