@@ -14,10 +14,10 @@ class Pet():
         
     def pet_attributes(self):
         self.health = random.randint(50, 100) 
-        self.happiness = random.randint(0, 100)  
-        self.cleanliness = random.randint (0, 100) 
-        self.hunger = random.randint(0, 100) 
-        self.tiredness = random.randint(0, 100)
+        self.happiness = random.randint(50, 100)  
+        self.cleanliness = random.randint (50, 100) 
+        self.hunger = random.randint(50, 100) 
+        self.tiredness = random.randint(50, 100)
     
     def update_stats(self, stats):
         self.health += int(stats[0])
@@ -132,8 +132,8 @@ def menu(pet):
         elif choice == "7":
             pet_pet(pet)
         elif choice == "8":
-            pet.pet_emotion()
             wellbeing_pet(pet)
+            pet.pet_emotion()
             continue
         else:
             return
