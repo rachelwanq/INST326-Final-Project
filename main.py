@@ -163,6 +163,31 @@ def hug_pet(pet):
     pet.cleaniness -= 3
     random_num = random.randint(0,1)
     print (f"{pet_name} hugged you back!" if random_num == 0 else f"{pet_name} did not hug you back")
+    
+        
+def wellbeing_pet(pet):
+    pet_stats = [pet.health, pet.happiness, pet.cleanliness, pet.hunger, pet.tiredness]
+   
+    unhappy_stats = sum(1 for attr in pet_stats if attr <= 60)
+    
+    if unhappy_stats >= 4:
+        print(f"{pet.name} needs care.")
+    elif unhappy_stats >= 2 and unhappy_stats <= 3:
+        print(f"{pet.name} is feeling ok.")
+    else:
+        print(f"{pet.name} is happy!")
+        
+def wellbeing_pet(pet):
+    pet_stats = [pet.health, pet.happiness, pet.cleanliness, pet.hunger, pet.tiredness]
+   
+    unhappy_stats = [attr for attr in pet_stats if attr <= 60]
+
+    if len(unhappy_stats) >= 4:
+        print(f"{pet.name} needs care.")
+    elif len(unhappy_stats) >= 2 and len(unhappy_stats) <= 3:
+        print(f"{pet.name} is feeling ok.")
+    else:
+        print(f"{pet.name} is happy!")
 
 # testing
 if __name__ == "__main__":
