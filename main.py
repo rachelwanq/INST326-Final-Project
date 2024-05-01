@@ -73,30 +73,32 @@ def menu(pet):
     print(f"8. See {pet_name}'s stats")
     random_behavior("random_behavior.txt", pet)
     choice = input("Please select an option: ")
-    if choice == "1":
-        food_dict, food_options = pet.read_food_list()
-        print("Available food options:", ", ".join(food_options)) 
-        food = input("What food would you like to feed your pet? ")
-        result = eat(pet, food)
-        print(result)
-    elif choice == "2":
-        print("Cleaning pet...")
-    elif choice == "3":
-        print("Hugging pet...")
-        hug_pet(pet)
-    elif choice == "4":
-        print("Playing with pet...")
-    elif choice == "5":
-        print("Watering pet...")
-        water_pet(pet)
-    elif choice == "6":
-        nap_pet(pet)
-    elif choice == "7":
-        pet_pet(pet)
-    elif choice == "8":
-        pet.pet_emotion()
-    else:
-        print("Invalid choice. Please select a valid option.")
+    for choice in pet_name: #fix this later
+        if choice == "1":
+            food_dict, food_options = pet.read_food_list()
+            print("Available food options:", ", ".join(food_options)) 
+            food = input("What food would you like to feed your pet? ")
+            result = eat(pet, food)
+            print(result)
+        elif choice == "2":
+            print("Cleaning pet...")
+        elif choice == "3":
+            print("Hugging pet...")
+            hug_pet(pet)
+        elif choice == "4":
+            print("Playing with pet...")
+        elif choice == "5":
+            print("Watering pet...")
+            water_pet(pet)
+        elif choice == "6":
+            nap_pet(pet)
+        elif choice == "7":
+            pet_pet(pet)
+        elif choice == "8":
+            pet.pet_emotion()
+        else:
+            print("Invalid choice. Please select a valid option.")
+    return choice #fix this later
         
 def nap_pet(pet):
     pet.tiredness -= 10
