@@ -2,7 +2,6 @@ import random
 import re
 import matplotlib.pyplot as plt
 
-
 class Pet():
     def __init__(self, name):
         self.name = name
@@ -21,13 +20,12 @@ class Pet():
         self.tiredness = random.randint(0, 100)
     
     def update_stats(self, stats):
-        self.health = int(stats[0])
-        self.happiness = int(stats[1])
-        self.cleaniness = int(stats[2])
-        self.hunger = int(stats[3])
-        self.tiredness = int(stats[4])
+        self.health += int(stats[0])
+        self.happiness += int(stats[1])
+        self.cleaniness += int(stats[2])
+        self.hunger += int(stats[3])
+        self.tiredness += int(stats[4])
         
-    
     def pet_emotion(self):
         
         attributes = ['Health', 'Happiness', 'Cleanliness', 'Hunger','Tiredness']
@@ -41,15 +39,12 @@ class Pet():
         plt.xlabel('Attributes')
         plt.ylabel('Values')
         plt.show()  
-        
-    
     
     def __str__(self):
         return (f"Pet: {self.name}, Health: {self.health}, Happiness: {self.happiness},"
                 f"Cleaniness: {self.cleaniness}, Hunger: {self.hunger}, "
                 f"Tiredness: {self.tiredness} ")
-    
-        
+     
     def read_food_list(self, file_name="list_of_foods.txt"):
         foods = {}
         food_options = []
@@ -65,7 +60,6 @@ class Pet():
                         food_options.append(food)
             
         return foods, food_options
-    
 
 def menu(pet):
     print("Welcome to the virtual pet menu!")
@@ -77,34 +71,52 @@ def menu(pet):
     print("6. Nap")
     print("7. Pet")
     print(f"8. See {pet_name}'s stats")
-    random_behavior("random_behavior.txt", pet)
+    print("9.'cancel' to quit")
     choice = input("Please select an option: ")
-    if choice == "1":
-        food = input("What food would you like to feed your pet? ")
-        eat(pet, food)
-    elif choice == "2":
-        print("Cleaning pet...")
-    elif choice == "3":
-        print("Hugging pet...")
-        hug_pet(pet)
-    elif choice == "4":
-        print("Playing with pet...")
-    elif choice == "5":
-        print("Watering pet...")
-        water_pet(pet)
-    elif choice == "6":
-        nap_pet(pet)
-    elif choice == "7":
-        pet_pet(pet)
-    elif choice == "8":
-        pet.pet_emotion()
-    else:
-        print("Invalid choice. Please select a valid option.")
+    while choice != "cancel":
+        print("1. Feed")
+        print("2. Clean")
+        print("3. Hug")
+        print("4. Play")
+        print("5. Water")
+        print("6. Nap")
+        print("7. Pet")
+        print(f"8. See {pet_name}'s stats")
+        print("9. 'cancel' to quit")
+        random_behavior("random_behavior.txt", pet)
+        choice = input("Please select an option: ")
+        #for choice in pet_name: #fix this later
+        if choice == "1":
+            food_dict, food_options = pet.read_food_list()
+            print("Available food options:", ", ".join(food_options)) 
+            food = input("What food would you like to feed your pet? ")
+            result = eat(pet, food)
+            print(result)
+        elif choice == "2":
+            print("Cleaning pet...")
+        elif choice == "3":
+            print("Hugging pet...")
+            hug_pet(pet)
+        elif choice == "4":
+            print("Playing with pet...")
+        elif choice == "5":
+            print("Watering pet...")
+            water_pet(pet)
+        elif choice == "6":
+            nap_pet(pet)
+        elif choice == "7":
+            pet_pet(pet)
+        elif choice == "8":
+            pet.pet_emotion()
+            wellbeing_pet(pet)
+            continue
+        else:
+            return
+        #return choice #fix this later
         
 def nap_pet(pet):
     pet.tiredness -= 10
     print(f"{pet.name} is now in bed and resting. ")
-        
         
 def random_behavior(filename, pet):
     final_choice = ""
@@ -116,12 +128,6 @@ def random_behavior(filename, pet):
     updating = list_of_stats[1:6]
     pet.update_stats(updating)
     print(list_of_stats[0])
-    
-# if __name__ == "__main__":
-#     dog = Pet("Harry")
-#     print(dog.cleaniness)
-#     random_behavior("random_behavior.txt", dog)
-#     print(dog.cleaniness)
 
 def eat(pet, food, file_name="list_of_foods.txt"):
     food_dict, food_options = pet.read_food_list(file_name)
@@ -134,24 +140,21 @@ def eat(pet, food, file_name="list_of_foods.txt"):
                 
     return f"Sorry, {pet.name} doesn't want to eat {food}."
 
-
 def clean(pet, self):
     
     clean_amount = 20
     
-    self.cleanliness = min(self.cleanliness + clean_amount, 100)
+    pet.cleanliness = min(pet.cleanliness + clean_amount, 100)
     
     self.happiness = max(self.happiness - 5, 0)
     
     self.tiredness = max(self.tiredness - 5, 0)
     
     
-    print(f"{self.name} has now been cleaned. Cleanliness score is now at {self.cleanliness}.")
+    print(f"{pet.name} has now been cleaned. Cleanliness score is now at {pet.cleanliness}.")
     
-    print(f"Hapiness is now at {self.happiness} and tiredness is now {self.tiredness}.")
+    print(f"Hapiness is now at {pet.happiness} and tiredness is now {pet.tiredness}.")
     
-    
-
 def pet_pet(pet):
     pet.happiness += 10
     pet.tiredness -= 7
@@ -168,6 +171,19 @@ def hug_pet(pet):
     pet.cleaniness -= 3
     random_num = random.randint(0,1)
     print (f"{pet_name} hugged you back!" if random_num == 0 else f"{pet_name} did not hug you back")
+    
+        
+def wellbeing_pet(pet):
+    pet_stats = [pet.health, pet.happiness, pet.cleanliness, pet.hunger, pet.tiredness]
+   
+    unhappy_stats = [attr for attr in pet_stats if attr <= 40]
+
+    if len(unhappy_stats) >= 4:
+        print(f"{pet.name} needs care.")
+    elif len(unhappy_stats) >= 2 and len(unhappy_stats) <= 3:
+        print(f"{pet.name} is feeling ok.")
+    else:
+        print(f"{pet.name} is happy!")
 
 # testing
 if __name__ == "__main__":
