@@ -71,6 +71,7 @@ def menu(pet):
     print("6. Nap")
     print("7. Pet")
     print(f"8. See {pet_name}'s stats")
+    print("'cancel' to quit")
     choice = input("Please select an option: ")
     while choice != "cancel":
         print("1. Feed")
@@ -81,6 +82,7 @@ def menu(pet):
         print("6. Nap")
         print("7. Pet")
         print(f"8. See {pet_name}'s stats")
+        print("'cancel' to quit")
         random_behavior("random_behavior.txt", pet)
         choice = input("Please select an option: ")
         #for choice in pet_name: #fix this later
@@ -106,6 +108,7 @@ def menu(pet):
             pet_pet(pet)
         elif choice == "8":
             pet.pet_emotion()
+            pet.wellbeing_pet()
         else:
             return
         #return choice #fix this later
@@ -124,12 +127,6 @@ def random_behavior(filename, pet):
     updating = list_of_stats[1:6]
     pet.update_stats(updating)
     print(list_of_stats[0])
-    
-# if __name__ == "__main__":
-#     dog = Pet("Harry")
-#     print(dog.cleaniness)
-#     random_behavior("random_behavior.txt", dog)
-#     print(dog.cleaniness)
 
 def eat(pet, food, file_name="list_of_foods.txt"):
     food_dict, food_options = pet.read_food_list(file_name)
@@ -146,18 +143,18 @@ def clean(pet, self):
     
     clean_amount = 20
     
-    self.cleanliness = min(self.cleanliness + clean_amount, 100)
+    pet.cleanliness = min(pet.cleanliness + clean_amount, 100)
     
     
-    self.happiness = max(self.happiness - 5, 0)
+    pet.happiness = max(pet.happiness - 5, 0)
     
     
-    self.tiredness = max(self.tiredness - 5, 0)
+    pet.tiredness = max(pet.tiredness - 5, 0)
     
     
-    print(f"{self.name} has now been cleaned. Cleanliness score is now at {self.cleanliness}.")
+    print(f"{pet.name} has now been cleaned. Cleanliness score is now at {pet.cleanliness}.")
     
-    print(f"Hapiness is now at {self.happiness} and tiredness is now {self.tiredness}.")
+    print(f"Hapiness is now at {pet.happiness} and tiredness is now {pet.tiredness}.")
     
 def pet_pet(pet):
     pet.happiness += 10
