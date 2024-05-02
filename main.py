@@ -77,7 +77,7 @@ def menu(pet):
     while True:
         for key, value in menu_options.items():
             print(f"{key}, {value}")
-        
+        random_behavior("random_behavior.txt", pet)
         choice = input("Please select an option: ")
         if choice.lower() == "cancel":
             break
@@ -134,15 +134,15 @@ def eat(pet, food, file_name="list_of_foods.txt"):
                 
     return f"Sorry, {pet.name} doesn't want to eat {food}."
 
-def clean(pet, self):
+def clean(pet):
     
     clean_amount = 20
     
     pet.cleanliness = min(pet.cleanliness + clean_amount, 100)
     
-    self.happiness = max(self.happiness - 5, 0)
+    pet.happiness = max(pet.happiness - 5, 0)
     
-    self.tiredness = max(self.tiredness - 5, 0)
+    pet.tiredness = max(pet.tiredness - 5, 0)
     
     
     print(f"{pet.name} has now been cleaned. Cleanliness score is now at {pet.cleanliness}.")
@@ -164,7 +164,7 @@ def hug_pet(pet):
     pet.happiness += 10
     pet.cleaniness -= 3
     random_num = random.randint(0,1)
-    print (f"{pet_name} hugged you back!" if random_num == 0 else f"{pet_name} did not hug you back")
+    print (f"{pet_name} hugged you back!" if random_num == 0 else f"You hugged {pet_name} but {pet_name} did not hug you back.")
     
         
 def wellbeing_pet(pet):
