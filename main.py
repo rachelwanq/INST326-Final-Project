@@ -109,7 +109,7 @@ def menu(pet):
         continue       
         
 def nap_pet(pet):
-    pet.tiredness -= 10
+    pet.tiredness += 10
     print(f"{pet.name} is now in bed and resting. ")
         
 def random_behavior(filename, pet):
@@ -162,7 +162,7 @@ def water_pet(pet):
 
 def hug_pet(pet):
     pet.happiness += 10
-    pet.cleaniness -= 3
+    pet.cleaniness -= 1
     random_num = random.randint(0,1)
     print (f"{pet_name} hugged you back!" if random_num == 0 else f"You hugged {pet_name} but {pet_name} did not hug you back.")
     
