@@ -105,7 +105,7 @@ def menu(pet):
                 wellbeing_pet(pet)
                 pet.pet_emotion()
             else:
-                print("Invalid option. Please selec a valid option.")
+                print("Invalid option. Please select a valid option.")
         continue       
         
 def nap_pet(pet):
