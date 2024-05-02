@@ -63,81 +63,50 @@ class Pet():
 
 def menu(pet):
     print("Welcome to the virtual pet menu!")
-    print("1. Feed")
-    print("2. Clean")
-    print("3. Hug")
-    print("4. Play")
-    print("5. Water")
-    print("6. Nap")
-    print("7. Pet")
-    print(f"8. See {pet_name}'s stats")
-    print("9.'cancel' to quit")
-    choice = input("Please select an option: ")
-    if choice == "1":
-        food_dict, food_options = pet.read_food_list()
-        print("Available food options:", ", ".join(food_options)) 
-        food = input("What food would you like to feed your pet? ")
-        result = eat(pet, food)
-        print(result)
-    elif choice == "2":
-        print("Cleaning pet...")
-    elif choice == "3":
-        print("Hugging pet...")
-        hug_pet(pet)
-    elif choice == "4":
-        print("Playing with pet...")
-    elif choice == "5":
-        print("Watering pet...")
-        water_pet(pet)
-    elif choice == "6":
-        nap_pet(pet)
-    elif choice == "7":
-        pet_pet(pet)
-    elif choice == "8":
-        pet.pet_emotion()
-        wellbeing_pet(pet)
-    else:
-        return
-    while choice != "cancel":
-        print("1. Feed")
-        print("2. Clean")
-        print("3. Hug")
-        print("4. Play")
-        print("5. Water")
-        print("6. Nap")
-        print("7. Pet")
-        print(f"8. See {pet_name}'s stats")
-        print("9. 'cancel' to quit")
-        random_behavior("random_behavior.txt", pet)
+    menu_options = {
+        "1": "Feed",
+        "2": "Clean",
+        "3": "Hug",
+        "4": "Play",
+        "5": "Water",
+        "6": "Nap",
+        "7": "Pet",
+        "8": f"See {pet.name}'s stats",
+        "9": "Cancel"
+    }
+    while True:
+        for key, value in menu_options.items():
+            print(f"{key}, {value}")
+        
         choice = input("Please select an option: ")
-        #for choice in pet_name: #fix this later
-        if choice == "1":
-            food_dict, food_options = pet.read_food_list()
-            print("Available food options:", ", ".join(food_options)) 
-            food = input("What food would you like to feed your pet? ")
-            result = eat(pet, food)
-            print(result)
-        elif choice == "2":
-            print("Cleaning pet...")
-        elif choice == "3":
-            print("Hugging pet...")
-            hug_pet(pet)
-        elif choice == "4":
-            print("Playing with pet...")
-        elif choice == "5":
-            print("Watering pet...")
-            water_pet(pet)
-        elif choice == "6":
-            nap_pet(pet)
-        elif choice == "7":
-            pet_pet(pet)
-        elif choice == "8":
-            wellbeing_pet(pet)
-            pet.pet_emotion()
-            continue
-        else:
-            return
-        #return choice #fix this later
+        if choice.lower() == "cancel":
+            break
+        action = menu_options.get(choice)
+        if action:
+            if action == "Feed":
+                food_dict, food_options = pet.read_food_list()
+                print("Available food options:", ", ".join(food_options))
+                food = input("What food would you like to feed your pet? ")
+                result = eat(pet,food)
+                print(result)
+            elif action == "Clean":
+                clean(pet)
+            elif action == "Hug":
+                hug_pet(pet)
+            elif action == "Play":
+                print("Playing with pet...")
+            elif action == "Water":
+                water_pet(pet)
+            elif action == "Nap":
+                nap_pet(pet)
+            elif action == "Pet":
+                pet_pet(pet)
+            elif action.startswith("See"):
+                wellbeing_pet(pet)
+                pet.pet_emotion()
+            else:
+                print("Invalid option. Please selec a valid option.")
+        continue       
         
 def nap_pet(pet):
     pet.tiredness -= 10
