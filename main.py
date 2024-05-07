@@ -13,6 +13,20 @@ class Pet():
         self.pet_attributes()
         
     def pet_attributes(self):
+        """
+        Initialize attributes for the pet object.
+
+        This method sets various attributes for the pet object, such as health, 
+        happiness, cleanliness, hunger, and tiredness.The attributes are randomly 
+        assigned values within a range of 50 to 100, so when the pet is created,
+        its attributes will not be zero.
+
+        Args:
+            self: The pet object.
+
+        Returns:
+            None
+        """
         self.health = random.randint(50, 100) 
         self.happiness = random.randint(50, 100)  
         self.cleanliness = random.randint (50, 100) 
@@ -211,6 +225,17 @@ def hug_pet(pet):
     
         
 def wellbeing_pet(pet):
+    """
+    Check the wellbeing status of the pet object based on its health, happiness, 
+    cleanliness, hunger, and tiredness attributes. 
+
+    Args:
+        pet: The pet object to check its wellbeing.
+
+    Side Effects:
+        Prints a message stating the pet's wellbeing status.
+
+    """
     pet_stats = [pet.health, pet.happiness, pet.cleanliness, pet.hunger, pet.tiredness]
    
     unhappy_stats = [attr for attr in pet_stats if attr <= 40]
