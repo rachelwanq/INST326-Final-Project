@@ -207,6 +207,18 @@ def clean(pet):
     print(f"Hapiness is now at {pet.happiness} and tiredness is now {pet.tiredness}.")
     
 def pet_pet(pet):
+    """
+    The petting action increases the happiness attribute of the pet object by 10
+    and decreases the tiredness attribute by 7.
+
+    Args:
+        pet: The pet object to be petted.
+    
+    Side Effects:
+        Prints a message saying the pet is happy.
+
+
+    """
     pet.happiness += 10
     pet.tiredness -= 7
     
