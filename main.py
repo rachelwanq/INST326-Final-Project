@@ -46,6 +46,26 @@ class Pet():
                 f"Tiredness: {self.tiredness} ")
      
     def read_food_list(self, file_name="list_of_foods.txt"):
+        """Read and parse a list of foods and their associated health bonuses 
+        from a text file.
+
+        Args:
+            file_name (str, optional): The name of the text file containing the 
+                list of foods and health bonuses. Defaults to 
+                "list_of_foods.txt".
+
+        Returns:  
+            tuple: A tuple containing two elements:
+                - dict: A dictionary where keys are food names and values are 
+                    their corresponding health bonuses.
+                - list: A list of food names extracted from the file.
+    
+        Note:
+            The text file should have each line formatted as 
+            "food,health_bonus", where 'food' is the name of the food and 
+            'health_bonus' is its associated health bonus.
+            Example: "carrot,+2"
+        """
         foods = {}
         food_options = []
         
@@ -124,6 +144,29 @@ def random_behavior(filename, pet):
     print(list_of_stats[0])
 
 def eat(pet, food, file_name="list_of_foods.txt"):
+    """Feed a pet with a specific food and update its health accordingly.
+
+    Args:
+        pet (Pet): The pet object to feed.
+        food (str): The name of the food to feed the pet.
+        file_name (str, optional): The name of the text file containing the list 
+            of foods and health bonuses. Defaults to "list_of_foods.txt".
+
+    Returns:
+        str: A message indicating the outcome of feeding the pet. If the pet 
+            eats the food, it returns a message confirming the health gained. 
+            If the pet rejects the food, it returns a rejection message.
+
+    Note:
+        The 'pet' parameter should be an instance of the Pet class or a subclass 
+        with a 'read_food_list' method, which reads and parses a list of foods 
+        and their associated health bonuses from the text file 
+        "list_of_foods.txt". The 'food' parameter should be a string 
+        representing the name of the food to feed the pet. The text file should 
+        have each line formatted as "food,health_bonus", where 'food' is the 
+        name of the food and 'health_bonus' is its associated health bonus.
+        Example: "carrot,+2"
+    """
     food_dict, food_options = pet.read_food_list(file_name)
     food = food.lower()
     
