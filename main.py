@@ -3,7 +3,33 @@ import re
 import matplotlib.pyplot as plt
 
 class Pet():
+    """ A class for the user's pet
+    
+    Attributes:
+        name (str): The name of the pet
+        health (int): The health of the pet
+        happiness (int): The happiness of the pet
+        cleaniness (int): The cheaniness of the pet
+        hunger (int): The pet's hunger
+        tiredness (int): The tiredness of the pet
+        
+    """
     def __init__(self, name):
+        """ Initalizes the pet
+        
+        Args:
+            name (str): The name of the pet
+            health (int): The health of the pet
+            happiness (int): The happiness of the pet
+            cleaniness (int): The cheaniness of the pet
+            hunger (int): The pet's hunger
+            tiredness (int): The tiredness of the pet
+        
+        Side effects:
+            Initalizes the name, health, happiness, cleaniness, hunger
+            and tiredness. Also calls the pet_attributes method.
+        
+        """
         self.name = name
         self.health = 0
         self.happiness = 0
@@ -34,6 +60,16 @@ class Pet():
         self.tiredness = random.randint(50, 100)
     
     def update_stats(self, stats):
+        """
+        Updates the stats of the pet
+        
+        Args:
+            stats (list of ints): The list of the stats provided
+            
+        Side effects:
+            Updates the current stats of the pet
+            
+        """
         self.health += int(stats[0])
         self.happiness += int(stats[1])
         self.cleaniness += int(stats[2])
@@ -225,6 +261,8 @@ def pet_pet(pet):
     print(f"{pet.name} is happy! ")
     
 def water_pet(pet):
+    """
+    """
     pet.health += 2
     pet.hunger += 3
     print(f"{pet.name} drank some water!")
