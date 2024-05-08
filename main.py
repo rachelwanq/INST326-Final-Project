@@ -3,33 +3,7 @@ import re
 import matplotlib.pyplot as plt
 
 class Pet():
-    """ A class for the user's pet
-    
-    Attributes:
-        name (str): The name of the pet
-        health (int): The health of the pet
-        happiness (int): The happiness of the pet
-        cleaniness (int): The cheaniness of the pet
-        hunger (int): The pet's hunger
-        tiredness (int): The tiredness of the pet
-        
-    """
     def __init__(self, name):
-        """ Initalizes the pet
-        
-        Args:
-            name (str): The name of the pet
-            health (int): The health of the pet
-            happiness (int): The happiness of the pet
-            cleaniness (int): The cheaniness of the pet
-            hunger (int): The pet's hunger
-            tiredness (int): The tiredness of the pet
-        
-        Side effects:
-            Initalizes the name, health, happiness, cleaniness, hunger
-            and tiredness. Also calls the pet_attributes method.
-        
-        """
         self.name = name
         self.health = 0
         self.happiness = 0
@@ -60,16 +34,6 @@ class Pet():
         self.tiredness = random.randint(50, 100)
     
     def update_stats(self, stats):
-        """
-        Updates the stats of the pet
-        
-        Args:
-            stats (list of ints): The list of the stats provided
-            
-        Side effects:
-            Updates the current stats of the pet
-            
-        """
         self.health += int(stats[0])
         self.happiness += int(stats[1])
         self.cleaniness += int(stats[2])
@@ -91,6 +55,11 @@ class Pet():
         plt.show()  
     
     def __str__(self):
+        """Return a string representation of the Pet object.
+
+        Returns:
+            str: A string containing the name and attributes of the pet.
+        """
         return (f"Pet: {self.name}, Health: {self.health}, Happiness: {self.happiness},"
                 f"Cleaniness: {self.cleaniness}, Hunger: {self.hunger}, "
                 f"Tiredness: {self.tiredness} ")
@@ -132,6 +101,21 @@ class Pet():
         return foods, food_options
 
 def menu(pet):
+    """
+    Display a menu for interacting with a virtual pet
+
+    Args:
+        pet (Pet): The virtual pet object to interact with.
+        
+        This function presents a menu with various options for interacting with the 
+        virtual pet. 
+        The user can select options such as feeding, cleaning, playing, and checking
+        the pet's stats.
+    
+    Side effects:
+        - Prints messages and interacts with the pet object based on user input.
+        - May modify the attributes of the pet object based on user actions.
+    """
     print("Welcome to the virtual pet menu!")
     menu_options = {
         "1": "Feed",
@@ -183,19 +167,6 @@ def nap_pet(pet):
     print(f"{pet.name} is now in bed and resting. ")
         
 def random_behavior(filename, pet):
-    """
-    The pet randomly does an action based on the picked option from
-    a text file
-    
-    Args:
-        filename (str): The file that needs to be imported
-        pet (Pet): The pet object
-        
-    Side effects:
-        Goes through the file and randomly picks a line to pick an action
-        for the pet to do. It updates the stats using the update_stats method
-        and prints the lsit of stats.
-    """
     final_choice = ""
     with open(filename, "r", encoding = "utf-8") as file:
         lines = file.readlines()
@@ -274,32 +245,11 @@ def pet_pet(pet):
     print(f"{pet.name} is happy! ")
     
 def water_pet(pet):
-    """ 
-    Allows the pet to drink water
-    
-    Args:
-        pet (Pet): The pet object
-        
-    Side effects:
-        Prints that the pet drank water. Also increases the pet's health by 2
-        and the pet's hunger by 3
-        
-    """
     pet.health += 2
     pet.hunger += 3
     print(f"{pet.name} drank some water!")
 
 def hug_pet(pet):
-    """
-    Allows the pet to be hugged
-
-    Args:
-        pet (Pet): The pet object
-        
-    Side effects:
-        Uses a random variable to see if the pet hugs the user or not.
-        Increases the happiness by 10 but decereases the cleaniness by 1.
-    """
     pet.happiness += 10
     pet.cleaniness -= 1
     random_num = random.randint(0,1)
