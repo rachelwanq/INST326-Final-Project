@@ -214,6 +214,17 @@ def menu(pet):
         continue       
         
 def nap_pet(pet):
+    """
+    Allows the pet to nap
+    
+    Args:
+        pet (Pet): The pet object
+        
+    Side effects:
+        Prints out the pets name along with the resting line. Increases
+        the pet tiredness by 10.
+        
+    """
     pet.tiredness += 10
     print(f"{pet.name} is now in bed and resting. ")
         
