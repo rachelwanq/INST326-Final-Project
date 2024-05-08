@@ -78,6 +78,21 @@ class Pet():
         
     def pet_emotion(self):
         
+        """
+        This method visualizes the emotional state of the pet object. A bar plot
+        is created to show the emotional attributes of each pet, including health,
+        happiness, cleanliness, hunger, and tiredness. Each attribute on the bar plot
+        is represented by a color to help keep the plots organized and readable
+        
+        Args:
+            self: The pet object
+            
+        Returns: 
+            A box plot that shows the stats of each attribute stat for that pet object.
+            We can see how the attributes scores have either increased or decreased 
+            after each action that the pet does.    
+        """
+        
         attributes = ['Health', 'Happiness', 'Cleanliness', 'Hunger','Tiredness']
         values = [self.health, self.happiness, self.cleaniness, self.hunger,
                   self.tiredness]
@@ -260,7 +275,21 @@ def eat(pet, food, file_name="list_of_foods.txt"):
     return f"Sorry, {pet.name} doesn't want to eat {food}."
 
 def clean(pet):
+
+    """
+    This function cleans the pet and modifies the cleanliness score. 
+    It also adjusts the pet's happiness and tiredness attribute scores because
+    being cleaned has the ability to make these attributes of the pet decrease.
     
+    Args: 
+        pet (Pet): The pet object that is being cleaned
+        
+    Side Effects:
+        updates the cleanliness, happiness, and tiredness attribute scores
+        for the pet object. Then it prints a message indicating the cleaning
+        action and the resulting changes that were made to the attributes score.
+    """
+
     clean_amount = 20
     
     pet.cleanliness = min(pet.cleanliness + clean_amount, 100)
