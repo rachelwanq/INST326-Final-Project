@@ -391,6 +391,17 @@ def wellbeing_pet(pet):
     else:
         print(f"{pet.name} is happy!")
 
-
-# testing
-#if __name__ == "__main__":
+def parse_arguments():
+    """Parse command-line arguments
+    
+    Returns: 
+        Namespace: The parsed arguments as a namespace boject.
+    """
+    parser = argparse.ArgumentParser(description = "Virtual Pet Simulator")
+    parser.add_argument("name", type=str, help="The name of the pet")
+    return parser.parse_args()
+#testing
+if __name__ == "__main__":
+    args = parse_arguments()
+    pet_name = Pet(args.name)
+    menu(pet_name)
