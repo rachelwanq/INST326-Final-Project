@@ -183,9 +183,10 @@ def menu(pet):
     
     [print(f"{key}, {value}") for key, value in menu_options.items()]
     while True:
+        for key, value in menu_options.items():
+            print(f"{key}, {value}")
         random_behavior("random_behavior.txt", pet)
         choice = input("Please select an option: ")
-        #exit the loop
         if choice.lower() == "cancel":
             break
         action = menu_options.get(choice)
@@ -390,19 +391,6 @@ def wellbeing_pet(pet):
     else:
         print(f"{pet.name} is happy!")
 
-def parse_arguments():
-    """Parse command-line arguments
-
-    Returns:
-        Namespace: The parsed arguments as a namespace object.
-    
-    """
-    parser = argparse.ArgumentParser(description = "Virtual Pet Simulatior")
-    parser.add_argument("name", type = str, help = "The name of the pet")
-    return parser.parse_args()
 
 # testing
-if __name__ == "__main__":
-    args = parse_arguments()
-    pet_name = Pet(args.name)
-    menu(pet_name)
+#if __name__ == "__main__":
