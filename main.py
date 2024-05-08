@@ -3,7 +3,32 @@ import re
 import matplotlib.pyplot as plt
 
 class Pet():
+    """ The class for the user's pet
+    
+    Attributes:
+        name (str): The name of the pet
+        health (int): The health of the pet
+        happiness (int): The pets happiness
+        cleaniness (int): The pets cleaniness
+        hunger (int): The pets hunger
+        tiredness (int): The pets tiredness
+    
+    """
     def __init__(self, name):
+        """ Initalizes the pet class
+        
+        Args:
+            name (str): The name of the pet
+            health (int): The health of the pet
+            happiness (int): The pets happiness
+            cleaniness (int): The pets cleaniness
+            hunger (int): The pets hunger
+            tiredness (int): The pets tiredness
+            
+        Side effects:
+            Initalizes the pets and calls the pet_attributes function
+            
+        """
         self.name = name
         self.health = 0
         self.happiness = 0
@@ -34,6 +59,17 @@ class Pet():
         self.tiredness = random.randint(50, 100)
     
     def update_stats(self, stats):
+        """ 
+        Updates the stats of the pet from the provided list
+        
+        Args:
+            stats (list of ints or strings): The stats of the pet
+            
+        Side effects:
+            Adds the stats into it's intended attribute. Also changes strings into ints
+            if needed
+            
+        """
         self.health += int(stats[0])
         self.happiness += int(stats[1])
         self.cleaniness += int(stats[2])
@@ -167,6 +203,18 @@ def nap_pet(pet):
     print(f"{pet.name} is now in bed and resting. ")
         
 def random_behavior(filename, pet):
+    """
+    Randomly chooses an action for the pet to do
+    
+    Args:
+        filename (str): The name of the file provided
+        pet (Pet): The pet object
+        
+    Side effects:
+        Goes through the file and chooses a random action for the pet to do.
+        Changes it's stats based on the action. Prints the list of stats.
+        
+    """
     final_choice = ""
     with open(filename, "r", encoding = "utf-8") as file:
         lines = file.readlines()
@@ -245,11 +293,33 @@ def pet_pet(pet):
     print(f"{pet.name} is happy! ")
     
 def water_pet(pet):
+    """
+    Allows the user to let the pet drink
+    
+    Args:
+        pet (Pet): The pet object
+        
+    Side effects:
+        Prints out the pet drank water. Adds 2 to the health and 3 to the hunger
+        for the pet
+        
+    """
     pet.health += 2
     pet.hunger += 3
     print(f"{pet.name} drank some water!")
 
 def hug_pet(pet):
+    """
+    Allows the user to hug the pet
+    
+    Args:
+        pet (Pet): The pet object
+        
+    Side effects:
+        Uses a random number to determine if the pet will hug the user back. Will
+        print out the results. Also adds 10 to the happiness of the pet and 
+        decreases cleaniness by 1.
+    """
     pet.happiness += 10
     pet.cleaniness -= 1
     random_num = random.randint(0,1)
