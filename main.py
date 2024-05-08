@@ -183,6 +183,19 @@ def nap_pet(pet):
     print(f"{pet.name} is now in bed and resting. ")
         
 def random_behavior(filename, pet):
+    """
+    The pet randomly does an action based on the picked option from
+    a text file
+    
+    Args:
+        filename (str): The file that needs to be imported
+        pet (Pet): The pet object
+        
+    Side effects:
+        Goes through the file and randomly picks a line to pick an action
+        for the pet to do. It updates the stats using the update_stats method
+        and prints the lsit of stats.
+    """
     final_choice = ""
     with open(filename, "r", encoding = "utf-8") as file:
         lines = file.readlines()
