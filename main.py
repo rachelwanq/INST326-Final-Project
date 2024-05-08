@@ -180,16 +180,14 @@ def menu(pet):
         "8": f"See {pet.name}'s stats",
         "9": "Cancel"
     }
-    #display the menu options
-    [print(f"{key}, {value}") for key, value in menu_options.items()]
     while True:
+        for key, value in menu_options.items():
+            print(f"{key}, {value}")
         random_behavior("random_behavior.txt", pet)
         choice = input("Please select an option: ")
-        #exit the loop
         if choice.lower() == "cancel":
             break
         action = menu_options.get(choice)
-        #perform action based on user's input
         if action:
             if action == "Feed":
                 food_dict, food_options = pet.read_food_list()
@@ -214,40 +212,7 @@ def menu(pet):
                 pet.pet_emotion()
             else:
                 print("Invalid option. Please select a valid option.")
-        continue
-    #while True:
-        #for key, value in menu_options.items():
-            #print(f"{key}, {value}")
-        #random_behavior("random_behavior.txt", pet)
-        #choice = input("Please select an option: ")
-        #if choice.lower() == "cancel":
-            #break
-        #action = menu_options.get(choice)
-        #if action:
-            #if action == "Feed":
-                #food_dict, food_options = pet.read_food_list()
-                #print("Available food options:", ", ".join(food_options))
-                #food = input("What food would you like to feed your pet? ")
-                #result = eat(pet,food)
-                #print(result)
-            #elif action == "Clean":
-                #clean(pet)
-            #elif action == "Hug":
-                #hug_pet(pet)
-            #elif action == "Play":
-                #print("Playing with pet...")
-            #elif action == "Water":
-                #water_pet(pet)
-            #elif action == "Nap":
-                #nap_pet(pet)
-            #elif action == "Pet":
-                #pet_pet(pet)
-            #elif action.startswith("See"):
-                #wellbeing_pet(pet)
-                #pet.pet_emotion()
-            #else:
-                #print("Invalid option. Please select a valid option.")
-        #continue       
+        continue       
         
 def nap_pet(pet):
     """
@@ -424,19 +389,7 @@ def wellbeing_pet(pet):
     else:
         print(f"{pet.name} is happy!")
 
-def parse_arguments():
-    """Parse command-line arguments
-
-    Returns:
-        Namespace: The parsed arguments as a namespace object.
-    
-    """
-    parser = argparse.ArgumentParser(description = "Virtual Pet Simulatior")
-    parser.add_argument("name", type = str, help = "The name of the pet")
-    return parser.parse_args()
 
 # testing
 if __name__ == "__main__":
-    args = parse_arguments()
-    pet_name = Pet(args.name)
-    menu(pet_name)
+    
