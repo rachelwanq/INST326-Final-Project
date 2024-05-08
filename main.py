@@ -261,13 +261,32 @@ def pet_pet(pet):
     print(f"{pet.name} is happy! ")
     
 def water_pet(pet):
-    """
+    """ 
+    Allows the pet to drink water
+    
+    Args:
+        pet (Pet): The pet object
+        
+    Side effects:
+        Prints that the pet drank water. Also increases the pet's health by 2
+        and the pet's hunger by 3
+        
     """
     pet.health += 2
     pet.hunger += 3
     print(f"{pet.name} drank some water!")
 
 def hug_pet(pet):
+    """
+    Allows the pet to be hugged
+
+    Args:
+        pet (Pet): The pet object
+        
+    Side effects:
+        Uses a random variable to see if the pet hugs the user or not.
+        Increases the happiness by 10 but decereases the cleaniness by 1.
+    """
     pet.happiness += 10
     pet.cleaniness -= 1
     random_num = random.randint(0,1)
