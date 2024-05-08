@@ -178,7 +178,6 @@ def menu(pet):
         "9": "Cancel"
     }
     
-    [print(f"{key}, {value}") for key, value in menu_options.items()]
     while True:
         for key, value in menu_options.items():
             print(f"{key}, {value}")
