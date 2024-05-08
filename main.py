@@ -1,6 +1,7 @@
 import random
 import re
 import matplotlib.pyplot as plt
+import argparse
 
 class Pet():
     """ The class for the user's pet
@@ -388,8 +389,19 @@ def wellbeing_pet(pet):
     else:
         print(f"{pet.name} is happy!")
 
+def parse_arguments():
+    """Parse command-line arguments
+
+    Returns:
+        Namespace: The parsed arguments as a namespace object.
+    
+    """
+    parser = argparse.ArgumentParser(description = "Virtual Pet Simulatior")
+    parser.add_argument("name", type = str, help = "The name of the pet")
+    return parser.parse_args()
+
 # testing
 if __name__ == "__main__":
-    pet_name = input("Please input a name for your pet!\n")
-    curr_pet = Pet(pet_name)
-    menu(curr_pet)
+    args = parse_arguments()
+    pet_name = Pet(args.name)
+    menu(pet_name)
