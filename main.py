@@ -13,7 +13,6 @@ class Pet():
         cleaniness (int): The pets cleaniness
         hunger (int): The pets hunger
         tiredness (int): The pets tiredness
-    
     """
     def __init__(self, name):
         """ Initalizes the pet class
@@ -28,7 +27,6 @@ class Pet():
             
         Side effects:
             Initalizes the pets and calls the pet_attributes function
-            
         """
         self.name = name
         self.health = 0
@@ -43,9 +41,9 @@ class Pet():
         Initialize attributes for the pet object.
 
         This method sets various attributes for the pet object, such as health, 
-        happiness, cleanliness, hunger, and tiredness.The attributes are randomly 
-        assigned values within a range of 50 to 100, so when the pet is created,
-        its attributes will not be zero.
+        happiness, cleanliness, hunger, and tiredness.The attributes are 
+        randomly assigned values within a range of 50 to 100, so when the pet is 
+        created, its attributes will not be zero.
 
         Args:
             self: The pet object.
@@ -67,9 +65,8 @@ class Pet():
             stats (list of ints or strings): The stats of the pet
             
         Side effects:
-            Adds the stats into it's intended attribute. Also changes strings into ints
-            if needed
-            
+            Adds the stats into it's intended attribute. Also changes strings 
+            into ints if needed. 
         """
         self.health += int(stats[0])
         self.happiness += int(stats[1])
@@ -78,23 +75,23 @@ class Pet():
         self.tiredness += int(stats[4])
         
     def pet_emotion(self):
-        
         """
         This method visualizes the emotional state of the pet object. A bar plot
-        is created to show the emotional attributes of each pet, including health,
-        happiness, cleanliness, hunger, and tiredness. Each attribute on the bar plot
-        is represented by a color to help keep the plots organized and readable
+        is created to show the emotional attributes of each pet, including 
+        health, happiness, cleanliness, hunger, and tiredness. Each attribute on 
+        the bar plot is represented by a color to help keep the plots organized 
+        and readable.
         
         Args:
             self: The pet object
             
         Returns: 
-            A box plot that shows the stats of each attribute stat for that pet object.
-            We can see how the attributes scores have either increased or decreased 
-            after each action that the pet does.    
+            A box plot that shows the stats of each attribute stat for that pet 
+            object. We can see how the attributes scores have either increased
+            or decreased after each action that the pet does.    
         """
-        
-        attributes = ['Health', 'Happiness', 'Cleanliness', 'Hunger','Tiredness']
+        attributes = ['Health', 'Happiness', 'Cleanliness', 'Hunger',
+                      'Tiredness']
         values = [self.health, self.happiness, self.cleaniness, self.hunger,
                   self.tiredness]
         
@@ -112,9 +109,9 @@ class Pet():
         Returns:
             str: A string containing the name and attributes of the pet.
         """
-        return (f"Pet: {self.name}, Health: {self.health}, Happiness: {self.happiness},"
-                f"Cleaniness: {self.cleaniness}, Hunger: {self.hunger}, "
-                f"Tiredness: {self.tiredness} ")
+        return (f"Pet: {self.name}, Health: {self.health}, Happiness: "\
+                f"{self.happiness}, Cleaniness: {self.cleaniness}, Hunger: "\
+                f"{self.hunger}, Tiredness: {self.tiredness} ")
      
     def read_food_list(self, file_name="list_of_foods.txt"):
         """Read and parse a list of foods and their associated health bonuses 
@@ -159,10 +156,10 @@ def menu(pet):
     Args:
         pet (Pet): The virtual pet object to interact with.
         
-        This function presents a menu with various options for interacting with the 
-        virtual pet. 
-        The user can select options such as feeding, cleaning, playing, and checking
-        the pet's stats.
+        This function presents a menu with various options for interacting with 
+        the virtual pet. 
+        The user can select options such as feeding, cleaning, playing, and 
+        checking the pet's stats.
     
     Side effects:
         - Prints messages and interacts with the pet object based on user input.
@@ -226,7 +223,6 @@ def nap_pet(pet):
     Side effects:
         Prints out the pets name along with the resting line. Increases
         the pet tiredness by 10.
-        
     """
     pet.tiredness += 10
     print(f"{pet.name} is now in bed and resting. ")
@@ -241,8 +237,7 @@ def random_behavior(filename, pet):
         
     Side effects:
         Goes through the file and chooses a random action for the pet to do.
-        Changes it's stats based on the action. Prints the list of stats.
-        
+        Changes it's stats based on the action. Prints the list of stats. 
     """
     final_choice = ""
     with open(filename, "r", encoding = "utf-8") as file:
@@ -289,7 +284,6 @@ def eat(pet, food, file_name="list_of_foods.txt"):
     return f"Sorry, {pet.name} doesn't want to eat {food}."
 
 def clean(pet):
-
     """
     This function cleans the pet and modifies the cleanliness score. 
     It also adjusts the pet's happiness and tiredness attribute scores because
@@ -303,19 +297,15 @@ def clean(pet):
         for the pet object. Then it prints a message indicating the cleaning
         action and the resulting changes that were made to the attributes score.
     """
-
     clean_amount = 20
-    
     pet.cleanliness = min(pet.cleanliness + clean_amount, 100)
-    
     pet.happiness = max(pet.happiness - 5, 0)
-    
     pet.tiredness = max(pet.tiredness - 5, 0)
-    
-    
-    print(f"{pet.name} has now been cleaned. Cleanliness score is now at {pet.cleanliness}.")
-    
-    print(f"Hapiness is now at {pet.happiness} and tiredness is now {pet.tiredness}.")
+
+    print(f"{pet.name} has now been cleaned. Cleanliness score is now at "\
+        f"{pet.cleanliness}.")
+    print(f"Hapiness is now at {pet.happiness} and tiredness is now "\
+        f"{pet.tiredness}.")
     
 def pet_pet(pet):
     """
@@ -327,8 +317,6 @@ def pet_pet(pet):
     
     Side Effects:
         Prints a message saying the pet is happy.
-
-
     """
     pet.happiness += 10
     pet.tiredness -= 7
@@ -345,7 +333,6 @@ def water_pet(pet):
     Side effects:
         Prints out the pet drank water. Adds 2 to the health and 3 to the hunger
         for the pet
-        
     """
     pet.health += 2
     pet.hunger += 3
@@ -359,15 +346,15 @@ def hug_pet(pet):
         pet (Pet): The pet object
         
     Side effects:
-        Uses a random number to determine if the pet will hug the user back. Will
-        print out the results. Also adds 10 to the happiness of the pet and 
+        Uses a random number to determine if the pet will hug the user back. 
+        Will print out the results. Also adds 10 to the happiness of the pet and 
         decreases cleaniness by 1.
     """
     pet.happiness += 10
     pet.cleaniness -= 1
-    print (f"{pet_name} hugged you back!" if random.choice([True, False]) else f"You hugged {pet_name} but {pet_name} did not hug you back.")
+    print (f"{pet_name} hugged you back!" if random.choice([True, False]) 
+           else f"You hugged {pet_name} but {pet_name} did not hug you back.")
     
-        
 def wellbeing_pet(pet):
     """
     Check the wellbeing status of the pet object based on its health, happiness, 
@@ -378,9 +365,9 @@ def wellbeing_pet(pet):
 
     Side Effects:
         Prints a message stating the pet's wellbeing status.
-
     """
-    pet_stats = [pet.health, pet.happiness, pet.cleanliness, pet.hunger, pet.tiredness]
+    pet_stats = [pet.health, pet.happiness, pet.cleanliness, pet.hunger, 
+                 pet.tiredness]
    
     unhappy_stats = [attr for attr in pet_stats if attr <= 40]
 
@@ -400,6 +387,7 @@ def parse_arguments():
     parser = argparse.ArgumentParser(description = "Virtual Pet Simulator")
     parser.add_argument("name", type=str, help="The name of the pet")
     return parser.parse_args()
+
 #testing
 if __name__ == "__main__":
     args = parse_arguments()
