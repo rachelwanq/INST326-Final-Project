@@ -362,8 +362,7 @@ def hug_pet(pet):
     """
     pet.happiness += 10
     pet.cleaniness -= 1
-    random_num = random.randint(0,1)
-    print (f"{pet_name} hugged you back!" if random_num == 0 else f"You hugged {pet_name} but {pet_name} did not hug you back.")
+    print (f"{pet_name} hugged you back!" if random.choice([True, False]) else f"You hugged {pet_name} but {pet_name} did not hug you back.")
     
         
 def wellbeing_pet(pet):
